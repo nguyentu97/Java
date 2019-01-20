@@ -1,0 +1,38 @@
+package communityuni.com.io;
+
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
+import java.io.ObjectInput;
+import java.io.ObjectInputStream;
+import java.io.ObjectOutput;
+import java.io.ObjectOutputStream;
+
+public class SerializeFileFactory {
+//	public static boolean luuFile(Object data, String path) {
+//		try {
+//			FileOutputStream fos = new FileOutputStream(path);
+//			ObjectOutputStream oos = new ObjectOutputStream(fos);
+//			oos.writeObject(data);
+//			oos.close();
+//			fos.close();
+//			return true;
+//		} catch (Exception e) {
+//			e.printStackTrace();
+//		}
+//		return false;
+//	}
+	public static Object docFile(String path) {
+		try {
+			FileInputStream fis = new FileInputStream(path);
+			ObjectInputStream ois = new ObjectInputStream(fis);
+			Object data = ois.readObject();
+			ois.close();
+			fis.close();
+			return data;
+		} catch (Exception e) {
+			// TODO: handle exception
+			e.printStackTrace();
+		}
+		return null;
+	}
+}
